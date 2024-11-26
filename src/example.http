@@ -1,0 +1,5 @@
+### GET request to user
+GET http://localhost:8080/users/1
+
+### Update user
+PATCH http://localhost:8080/users/1
