@@ -1,4 +1,4 @@
-package logic.controllers;
+package com.logic.project.controllers;
 
 import org.springframework.stereotype.Controller;
 

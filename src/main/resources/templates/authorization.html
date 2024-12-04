@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        .form-group.has-error {
+            border: 1px solid red;
+        }
+        .form-group.has-error .help-block {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            Авторизация
+        </div>
+        <div class="card-body">
+            <form th:action="@{/login}" th:object="${user}" method="post">
+                <div class="form-group" th:classappend="${#fields.hasErrors('login')} ? 'has-error'">
+                    <label for="login">Логин:</label>
+                    <input type="text" class="form-control" id="login" th:field="*{login}" placeholder="Введите логин">
+                    <span class="help-block" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></span>
+                </div>
+
+                <div class="form-group" th:classappend="${#fields.hasErrors('password')} ? 'has-error'">
+                    <label for="password">Пароль:</label>
+                    <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="Введите пароль">
+                    <span class="help-block" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Войти</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
