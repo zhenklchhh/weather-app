@@ -16,6 +16,11 @@ import lombok.Setter;
 @NoArgsConstructor
 public class User {
 
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
+
     public User(String login, String email, String password) {
         this.login = login;
         this.email = email;

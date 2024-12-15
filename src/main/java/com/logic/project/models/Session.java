@@ -5,7 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.Instant;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Table(name="sessions")
@@ -16,13 +18,13 @@ public class Session {
 
     @Id
     @Column(name="id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(generator = "UUID")
+    private UUID id;
 
-    @Column(name="userId")
-    private int userId;
+    @Column(name="userid")
+    private long userId;
 
-    @Column(name="expiresAt")
-    private LocalDate expiryDate;
+    @Column(name="expiresat")
+    private Instant expiryDate;
 
 }

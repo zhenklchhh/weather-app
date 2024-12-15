@@ -2,7 +2,6 @@ package com.logic.project.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,7 +10,6 @@ import lombok.Setter;
 @Table(name="locations")
 @Setter
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
 public class Location {
 
@@ -20,19 +18,28 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty
-    @Column(name="name")
+    @Column(name="locationname")
     private String name;
 
-    @NotEmpty
-    @Column(name="userId")
-    private int userID;
+    @Column(name="userid")
+    private long userID;
 
-    @NotEmpty
     @Column(name="latitude")
     private double latitude;
 
-    @NotEmpty
     @Column(name="longitude")
     private double longitude;
+
+    public Location(String name, double latitude, double longitude) {
+        this.name = name;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public Location(String name, int userID, double latitude, double longitude) {
+        this.name = name;
+        this.userID = userID;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 }
